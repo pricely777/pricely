@@ -1,0 +1,30 @@
+[
+  {
+    "loja": "Amazon.es",
+    "produto": "Apple iPhone 15 128 GB - Azul (Recondicionado)",
+    "preco": "416,00 €",
+    "preco_num": 416.0,
+    "data": "2026-05-08 16:20"
+  },
+  {
+    "loja": "Amazon.es",
+    "produto": "Apple iPhone 15 128 GB - preto (recondicionado)",
+    "preco": "433,00 €",
+    "preco_num": 433.0,
+    "data": "2026-05-08 16:20"
+  },
+  {
+    "loja": "Amazon.es",
+    "produto": "Apple iPhone 15 256 GB - preto (recondicionado)",
+    "preco": "477,00 €",
+    "preco_num": 477.0,
+    "data": "2026-05-08 16:20"
+  },
+  {
+    "loja": "Amazon.es",
+    "produto": "Apple iPhone 15 (128 GB) - azul",
+    "preco": "649,56 €",
+    "preco_num": 649.56,
+    "data": "2026-05-08 16:20"
+  }
+]
