@@ -1,4 +1,5 @@
 import asyncio
+import os
 from playwright.async_api import async_playwright
 from datetime import datetime
 import httpx
@@ -7,8 +8,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # ── Configuração ──────────────────────────────────────
-SUPABASE_URL = "https://umejembwtzlsmedvwcgi.supabase.co"
-SUPABASE_KEY = "sb_publishable_yA4ZIzW8YeDZ0hTs6Lj0ZA_sYkIEvQe"
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://umejembwtzlsmedvwcgi.supabase.co")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "sb_publishable_yA4ZIzW8YeDZ0hTs6Lj0ZA_sYkIEvQe")
 HEADERS = {
     "apikey": SUPABASE_KEY,
     "Authorization": f"Bearer {SUPABASE_KEY}",
@@ -16,9 +17,9 @@ HEADERS = {
     "Prefer": "return=representation"
 }
 
-EMAIL_REMETENTE = "pricelyplus@gmail.com"
-EMAIL_PASSWORD = "dbsdfyyehfjgpeuv"
-EMAIL_DONO = "newo26954@gmail.com"
+EMAIL_REMETENTE = os.environ.get("EMAIL_REMETENTE", "pricelyplus@gmail.com")
+EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD", "dbsdfyyehfjgpeuv")
+EMAIL_DONO = os.environ.get("EMAIL_DONO", "newo26954@gmail.com")
 
 # ── Palavras a excluir por pesquisa ───────────────────
 EXCLUSOES = {
@@ -170,7 +171,7 @@ async def scraper_todas_lojas(pesquisa, email_cliente=None):
     precos_anteriores = await buscar_precos_anteriores(pesquisa)
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
+        browser = await p.chromium.launch(headless=True)
         pagina = await browser.new_page()
 
         resultados = []
